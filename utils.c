@@ -6,16 +6,16 @@
 /*   By: vsimeono <vsimeono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 16:01:25 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/01/31 21:41:24 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/02/01 14:16:48 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int		i;
-	int		num;
+	long		num;
 	int		sign;
 
 	i = 0;
@@ -70,11 +70,18 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new)
 		*lst = new;
 }
 
+// int	ft_isdigit(int c)
+// {
+// 	if (c >= 48 && c <= 57)
+// 	{
+// 		return (1);
+// 	}
+// 	return (0);
+// }
+
 int	ft_isdigit(int c)
 {
-	if (c >= 48 && c <= 57)
-	{
+	if (c >= '0' && c <= '9')
 		return (1);
-	}
 	return (0);
 }

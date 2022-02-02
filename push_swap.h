@@ -6,7 +6,7 @@
 /*   By: vsimeono <vsimeono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 18:32:03 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/01/27 20:38:10 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/02/02 22:35:39 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <stdlib.h>
 #include <stdio.h>   //////Delete This!!!!   TODO
 
+# define INT_MIN -2147483648
+# define INT_MAX 2147483647
 
 // typedef struct s_element
 // {
@@ -27,8 +29,8 @@
 
 typedef struct s_stack 
 {
-	struct s_stack *prev;
 	int value;
+	int	index;
 	struct s_stack *next;
 } t_stack;
 
@@ -41,21 +43,50 @@ typedef struct s_variables
 
 } t_variables;
 
-void	stack_add_bottom(t_stack *stack_a, int value);
+void	stack_add_bottom(t_stack **stack, int value);
+void	ft_lstadd_back(t_stack **lst, t_stack *new);
 
 t_stack	*create_stack_value(int value);
-t_stack	*create_stack_empty(void);
+
+
+//////AKS
+int	len_stack(t_stack **stack);
+int	len_stack_index_assign(t_stack **stack);
+int	bubble_swap(int small, int big);
+
+
+
 
 /// Operations
-void	swap_a(t_stack *stack);
+void	swap_a(t_stack **stack);
 void	swap_b(t_stack *stack);
+void	rotate_stack(t_stack **stack);
+void	reverse_rotate(t_stack **stack);
+void	push(t_stack **stack_a, t_stack **stack_b);
+////////////////////
 
 // t_element	*create_element(int value);
-int	ft_atoi(const char *str);
+
+
+//// Libft
+long	ft_atoi(const char *str);
+int	ft_isdigit(int c);
+
+// Indexing
+void    bubble_sort(t_stack **stack);
+int		bubble_swap(int small, int big);
+void	index_assignment(t_stack **stack_a, t_stack **stack_sorted);
+int	len_stack_index_assign(t_stack **stack);
+
+// Checkers
+int	more_than_int(int argc, char **argv);
+int	has_duplicates(int argc, char **argv);
+int	more_than_digits(int argc, char **argv);
 
 /////Just for Testing
 void print(t_stack *stack);
-
+void	print_stack(t_stack **stack);
+void	print_index(t_stack **stack);
 
 
 
