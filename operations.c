@@ -6,7 +6,7 @@
 /*   By: vsimeono <vsimeono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:22:43 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/02/02 22:04:06 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/02/05 13:15:18 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,47 +164,12 @@ void	push(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*first;
 	t_stack	*second;
-	// t_stack *first_b;
-	// int	count;
-	// int	i;
 
-	// printf("%p\n", *stack_a);
-	// printf("%p\n", *stack_b);
-
-	// i = 0;
-	// count = len_stack(stack_a);
-		if (*stack_a == NULL)
+	if (*stack_a == NULL)
 		return ;
-	// if (*stack_b == NULL)
-	// {
-	// 	first = *stack_a;
-	// 	second = first->next;
-	// 	*stack_a = second;
-	// 	first->next = NULL;
-	// 	*stack_b = first;
-	// 	return ;
-	// }
-	// if ((len_stack(stack_a) > 1) && (*stack_b != NULL))
-		// if ((len_stack(stack_a) > 1) && (*stack_b != NULL))
-	// {
-		printf("Second Condition\n");
-		first = *stack_a;
-		second = first->next;
-		*stack_a = second;
-		first->next = *stack_b;
-		*stack_b = first;
-		// return ;
-	// }
-	// if ((len_stack(stack_a) == 1) && (*stack_b != NULL))
-	// {
-	// 	printf("Third Condition\n");
-	// 	first = *stack_a;
-	// 	// *stack_a = NULL;
-	// 	printf("%p", *stack_a);
-	// 	first->next = *stack_b;
-	// 	printf("first->next: %p\n", first->next);
-	// 	*stack_b = first;
-	// 	*stack_a = NULL;
-	// 	return ;
-	// }
+	first = *stack_a;
+	second = first->next;
+	*stack_a = second;
+	first->next = *stack_b;
+	*stack_b = first;
 }

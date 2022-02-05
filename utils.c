@@ -6,7 +6,7 @@
 /*   By: vsimeono <vsimeono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 16:01:25 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/02/01 14:16:48 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/02/03 20:06:48 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,6 @@ long	ft_atoi(const char *str)
 	return (num * sign);
 }
 
-
-// t_stack	*ft_lstnew(void *content)
-// {
-// 	t_list	*new_element;
-
-// 	new_element = (t_list *)malloc(sizeof(t_list) * 1);
-// 	if (new_element)
-// 	{
-// 		new_element->content = content;
-// 		new_element->next = NULL;
-// 	}
-// 	return (new_element);
-// }
-
 void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
 	t_stack	*temp;
@@ -84,4 +70,23 @@ int	ft_isdigit(int c)
 	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
+}
+
+int	len_stack(t_stack **stack)
+{
+	t_stack *temp;
+	int	counter;
+	
+	temp = *stack;
+	counter = 0;
+	if (*stack != NULL)
+	{
+		counter = 1; 
+		while (temp->next != NULL)
+		{
+			temp = temp->next;
+			counter++;
+		}
+	}
+	return (counter);
 }

@@ -1,0 +1,5 @@
+1. Improve Error Checker
+Done // 2. Find biggest Value  == List count
+Done // 3. Put smallest number on top of Stack
+4. Hard Code for 5 Numbers or Less
+5. Further: int	count_biggest_index_in_binary(t_stack **stack)

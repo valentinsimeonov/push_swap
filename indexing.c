@@ -6,7 +6,7 @@
 /*   By: vsimeono <vsimeono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 22:32:08 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/02/02 22:38:55 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/02/03 14:02:28 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	len_stack_index_assign(t_stack **stack)
 	
 	temp = *stack;
 	i = 1;
-	counter = 0;   //// To Check, Probably nest in IF Statement as 1 (next line)
+	counter = 0;
 	if (*stack != NULL)
 	{
 		counter = 1;

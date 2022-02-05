@@ -6,7 +6,7 @@
 /*   By: vsimeono <vsimeono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 18:32:03 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/02/02 22:35:39 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/02/05 20:22:13 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,11 @@ void	swap_b(t_stack *stack);
 void	rotate_stack(t_stack **stack);
 void	reverse_rotate(t_stack **stack);
 void	push(t_stack **stack_a, t_stack **stack_b);
-////////////////////
+/// Shifting
+void	shifting(t_stack **stack_a, t_stack **stack_b);
 
-// t_element	*create_element(int value);
-
+/// Utils
+int	count_biggest_index_in_binary(t_stack **stack);
 
 //// Libft
 long	ft_atoi(const char *str);
