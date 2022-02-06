@@ -6,7 +6,7 @@
 /*   By: vsimeono <vsimeono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:22:43 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/02/05 13:15:18 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/02/06 22:23:14 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,27 @@ void	swap_a(t_stack **stack)
 	t_stack	*third;
 
 	first = *stack;
-	// printf("first value: %d\n", first->value);
 	second = first->next;
-	// printf("second value: %d\n", second->value);
-	// printf("second element: %p\n", second);
-	// printf("first element: %p\n", first);
 	third = second->next;
-	// printf("third element: %p\n", third);
 	second->next = first;
-	// printf("second next: %p\n", second->next);
-	// printf("%d\n", stack_a->value);
 	first->next = third;
-	// printf("first next: %p\n", first->next);
-	// printf("%d\n", stack_a->value);
 	*stack = second;
+	write(1, "sa\n", 3);
 }
+
+// void	swap_b(t_stack **stack)
+// {
+// 	t_stack *first;
+// 	t_stack	*second;
+// 	t_stack	*third;
+	
+// 	first = *stack;
+// 	second = first->next;
+// 	third = second->next;
+// 	second->next = first;
+// 	first->next = third;
+// 	*stack = second;
+// }
 
 void	switch_first_last_stack(t_stack **stack)
 {
@@ -54,64 +60,22 @@ void	switch_first_last_stack(t_stack **stack)
 		counter++;
 	}
 	last = temp;
-	// printf("%d\n", counter);
-	// printf("last: %p\n", temp);
-	// printf("last value%d\n", last->value);
 	temp = *stack;
-	// printf("temp: %p\n", temp);
-	// printf("temp value%d\n", temp->value);
+
 	while (j < (counter - 1))
 	{
 		temp = temp->next;
 		j++;
 	}
-	// printf("%d\n", j);
 	before_last = temp;
-	// printf("before last: %p\n", before_last);
-	// printf("before last value%d\n", before_last->value);
 	first = *stack;
-	// printf("first: %p\n", first);
-	// printf("first value%d\n", first->value);
 	second = first->next;
-	// printf("second: %p\n", second);
-	// 	printf("second value%d\n", second->value);
 	last->next = second;
-	// printf("last->next: %p\n", last->next);
 	before_last->next = first;
-	// printf("before_last->next: %p\n", before_last->next);
-	// printf("last: %p\n", last);
-	// 	printf("last value%d\n", last->value);
-	first->next = NULL;
 	*stack = last;
-	// printf("stack: %p\n", *stack);
-	// 	printf("stack value%d\n", (*stack)->value);
-// 	printf("\nWhat I think is Inside the Stack: \n\n");
-// printf("last value%d\n", last->value);
-// 	printf("last: %p\n", last);
-// printf("last->next: %p\n", last->next);
-
-// printf("second value%d\n", second->value);
-// 	printf("second: %p\n", second);
-// printf("second->next: %p\n", second->next);
-
-// 	printf("before last value%d\n", before_last->value);	
-// 	printf("before last: %p\n", before_last);
-// printf("before_last->next: %p\n", before_last->next);
-	
-// 	printf("first value%d\n", first->value);
-// 	printf("first: %p\n", first);
-// 	printf("first->next: %p\n", first->next);
-
-	
-	// printf("first: %p\n", first);
-	// printf("second: %p\n", second);
-	// printf("before last: %p\n", before_last);
-	// printf("last: %p\n", last);
-	// printf("stack: %p\n", *stack);
-	
 }
 
-void	rotate_stack(t_stack **stack)
+void	rotate_stack_a(t_stack **stack)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -127,9 +91,29 @@ void	rotate_stack(t_stack **stack)
 	last->next = first;
 	first->next = NULL;
 	*stack = second;
+	write(1, "ra\n", 3);
 }
 
-void	reverse_rotate(t_stack **stack)
+void	rotate_stack_b(t_stack **stack)
+{
+	t_stack	*first;
+	t_stack	*second;
+	t_stack	*last;
+	t_stack	*temp;
+
+	temp = *stack;
+	first = *stack;
+	second = first->next;
+	while (temp->next != NULL)
+		temp = temp->next;
+	last = temp;
+	last->next = first;
+	first->next = NULL;
+	*stack = second;
+	write(1, "rb\n", 3);
+}
+
+void	reverse_rotate_a(t_stack **stack)
 {
 	t_stack	*temp;
 	t_stack	*first;
@@ -158,9 +142,42 @@ void	reverse_rotate(t_stack **stack)
 	before_last = temp;
 	before_last->next = NULL;
 	*stack = last;
+	write(1, "rra\n", 4);
 }
 
-void	push(t_stack **stack_a, t_stack **stack_b)
+void	reverse_rotate_b(t_stack **stack)
+{
+	t_stack	*temp;
+	t_stack	*first;
+	t_stack	*before_last;
+	t_stack	*last;
+	int		counter;
+	int		i;
+
+	counter = 1;
+	i = 1;
+	temp = *stack;
+	first = *stack;
+	while (temp->next != NULL)
+	{
+		temp = temp->next;
+		counter++;
+	}
+	last = temp;
+	last->next = first;
+	temp = *stack;
+	while (i < (counter - 1))
+	{
+		temp = temp->next;
+		i++;
+	}
+	before_last = temp;
+	before_last->next = NULL;
+	*stack = last;
+	write(1, "rrb\n", 4);
+}
+
+void	push_a(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -172,4 +189,20 @@ void	push(t_stack **stack_a, t_stack **stack_b)
 	*stack_a = second;
 	first->next = *stack_b;
 	*stack_b = first;
+	write(1, "pa\n", 3);
+}
+
+void	push_b(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack	*first;
+	t_stack	*second;
+
+	if (*stack_a == NULL)
+		return ;
+	first = *stack_a;
+	second = first->next;
+	*stack_a = second;
+	first->next = *stack_b;
+	*stack_b = first;
+	write(1, "pb\n", 3);
 }

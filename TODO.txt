@@ -1,5 +1,23 @@
+
+=== TODO  ====
+
 1. Improve Error Checker
 Done // 2. Find biggest Value  == List count
 Done // 3. Put smallest number on top of Stack
 4. Hard Code for 5 Numbers or Less
 5. Further: int	count_biggest_index_in_binary(t_stack **stack)
+6. Check Memeory Leaks
+7. Adjust According to the Norm
+
+
+
+====  Steps Taken in building the Program:  =====
+
+1. Error Check/Validity(int, Duplicates, etc) The Arguments fomr STDIN
+2. Take rguments from STDIN and Insert them in Linked Lists
+3. Create Two Linked Lists with the Same Arguments from STDIN
+4. Sort the Values in the Duplicte List with Bubble sort
+5. Apply Indexes to the Values in the Duplicate List
+6. Map the Indexes to the Values in the Original List
+7. Create Binary Radix Sort
+8. Implement Binary Radix Sort on the Indexes in the Original List

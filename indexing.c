@@ -6,7 +6,7 @@
 /*   By: vsimeono <vsimeono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/02 22:32:08 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/02/03 14:02:28 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/02/06 20:22:49 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	len_stack_index_assign(t_stack **stack)
 		}
 		temp->index = i;
 	}
-	printf("Counter: %d\n", counter);
+	// printf("Counter: %d\n", counter);
 	return (counter);
 }
 

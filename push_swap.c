@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_sl_dp.c                                       :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vsimeono <vsimeono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 12:37:22 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/02/05 21:30:57 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/02/06 22:28:12 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int	main(int argc, char **argv)
 	t_stack	*stack_b;
 	t_variables	var;
 	int		j;
+	int		temp;
 
+	temp = 0;
 	if (argc == 1)
 		return (0);
 	if (argc < 3 || more_than_digits(argc, argv) || \
@@ -27,7 +29,7 @@ int	main(int argc, char **argv)
 	{
 		write(2, "Error\n", 6);
 		return (-1);
-	}
+	}	
 	var.i = 1;
 	while (var.i < argc)
 	{
@@ -40,25 +42,25 @@ int	main(int argc, char **argv)
 		ft_lstadd_back(&stack_sorted, create_stack_value(ft_atoi(argv[j])));
 		j++;
 	}
-	
-	print_stack(&stack_a);
-	print_stack(&stack_sorted);
+
+	// print_stack(&stack_a);
+	// print_stack(&stack_sorted);
 	
 	bubble_sort(&stack_sorted);
 	
-	print_stack(&stack_sorted);
-	print_index(&stack_sorted);
-	printf("1---------------\n");
+	// print_stack(&stack_sorted);
+	// print_index(&stack_sorted);
+	// printf("1---------------\n");
 	
 	index_assignment(&stack_a, &stack_sorted);
 	
-	printf("---------------\n");
-	print_stack(&stack_a);
-	print_index(&stack_a);
+	// printf("---------------\n");
+	// print_stack(&stack_a);
+	// print_index(&stack_a);
 	
-	printf("---------------\n");
-	print_stack(&stack_sorted);
-	print_index(&stack_sorted);
+	// printf("---------------\n");
+	// print_stack(&stack_sorted);
+	// print_index(&stack_sorted);
 	
 	// len_stack_index_assign(&stack_a);
 	// print_index(&stack_a);
@@ -66,15 +68,31 @@ int	main(int argc, char **argv)
 
 
 
-	printf("-----------Shift to A Part1: ---------------\n");
-	shifting(&stack_a, &stack_b);
-	printf("-----------Shift to A Part1: ---------------\n");
-	printf("Stack A\n");
-	print_stack(&stack_a);
-	print_index(&stack_a);
-	printf("Stack B\n");
-	print_stack(&stack_b);
-	print_index(&stack_b);
+///// I neeed this!!!!!!!!
+	if (argc == 3 && stack_a->index != 1)
+	{
+		swap_a(&stack_a);
+		return (0);
+	}
+	
+	
+	
+	// if (argc > 3 && argc > 6)
+	// 	manual_sort(&stack_a);
+
+	if (argc > 6)
+	{
+		// printf("-----------Shift to A Part1: ---------------\n");
+		shifting(&stack_a, &stack_b);
+		// printf("-----------Shift to A Part1: ---------------\n");
+		// printf("Stack A\n");
+		// print_stack(&stack_a);
+		// print_index(&stack_a);
+		// printf("Stack B\n");
+		// print_stack(&stack_b);
+		// print_index(&stack_b);
+	}
+
 
 
 	
@@ -194,6 +212,11 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
+// void	manual_sort(t_stack **stack)
+// {
+	
+// }
+
 void	shifting(t_stack **stack_a, t_stack **stack_b)
 {
 	int		shift;
@@ -215,15 +238,15 @@ void	shifting(t_stack **stack_a, t_stack **stack_b)
 		{
 			while (i < count && *stack_a)
 			{
-				if ((*stack_a)->index >> shift & 1)
+				if (((*stack_a)->index >> shift & 1) == 1)
 					// push(stack_a, stack_b);
-					rotate_stack(stack_a);
+					rotate_stack_a(stack_a);
 				else 
 					// rotate_stack(stack_a);
-					push(stack_a, stack_b);
+					push_b(stack_a, stack_b);
 					// reverse_rotate(stack_a);
 				// printf("Stack A\n");
-				// print_index(stack_a);
+				// print_index(stack_a); 
 				// printf("Stack B\n");
 				// print_index(stack_b);
 				i++;
@@ -237,8 +260,19 @@ void	shifting(t_stack **stack_a, t_stack **stack_b)
 		{
 			while (*stack_b)
 			{
-				push(stack_b, stack_a);
-				print_stack(stack_a);
+				// if (((*stack_b)->index >> shift & 1) == 1)
+				// 	// push(stack_a, stack_b);
+				// 	rotate_stack_a(stack_a);
+				// else 
+				// 	// rotate_stack(stack_a);
+				// 	push_b(stack_a, stack_b);
+				
+				
+				push_a(stack_b, stack_a);
+
+
+				
+				// print_stack(stack_a);
 			}
 				// printf("Stack A\n");
 				// print_index(stack_a);
@@ -250,81 +284,60 @@ void	shifting(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-
-
 int	count_biggest_index_in_binary(t_stack **stack)
 {
-	int		shift;
 	int		max_index;
 	int		max_bits;
-	// t_stack	*temp;
 
-	// temp = stack_a;
-	shift = 0;
 	max_bits = 0;
 	max_index = len_stack(stack);
-	// printf("%d\n", max_index);
-	// sleep(10);
-
 	while (max_index >> max_bits)
-		++max_bits;
-	// printf("K: %d\n", max_bits);
-	// sleep(10);
-	// while (shift <= 31)
-	// {
-	// 	if (max_index >> shift & 1)
-	// 		max_bits++;
-	// 	shift++;
-	// }
-	// printf("V: %d\n", max_bits);
-	// sleep(10);
+		max_bits++;
 	return (max_bits);
 }
 
-void	print_stack(t_stack **stack)
-{
-	/* Printing Function */
-	t_stack *temp_p;
+// void	print_stack(t_stack **stack)
+// {
+// 	/* Printing Function */
+// 	t_stack *temp_p;
 	
-	temp_p = *stack;
-	if (*stack == NULL)
-		printf("List is Empty\n");
-	if (*stack != NULL)
-	{	
-		while (temp_p->next != NULL)
-		{
-			printf("%s", "In List: ");
-			// printf("%d", temp_p->value);
-			printf("%d\n", temp_p->value);
-			temp_p = temp_p->next;
-		}
-		printf("%s", "In List: ");
-		printf("%d\n", temp_p->value);
-	}
-}
+// 	temp_p = *stack;
+// 	if (*stack == NULL)
+// 		printf("List is Empty\n");
+// 	if (*stack != NULL)
+// 	{	
+// 		while (temp_p->next != NULL)
+// 		{
+// 			printf("%s", "In List: ");
+// 			printf("%d\n", temp_p->value);
+// 			temp_p = temp_p->next;
+// 		}
+// 		printf("%s", "In List: ");
+// 		printf("%d\n", temp_p->value);
+// 	}
+// }
 
-void	print_index(t_stack **stack)
-{
-	/* Printing Function */
-	t_stack *temp_p;
+// void	print_index(t_stack **stack)
+// {
+// 	/* Printing Function */
+// 	t_stack *temp_p;
 	
-	temp_p = *stack;
-	if (*stack == NULL)
-		printf("List is Empty\n");
-	if (*stack != NULL)
-	{	
-		while (temp_p->next != NULL)
-		{
-			printf("%s", "In Index: ");
-			// printf("%d", temp_p->value);
-			printf("%d\n", temp_p->index);
-			temp_p = temp_p->next;
-		}
-		printf("%s", "In Index: ");
-		printf("%d\n", temp_p->index);
-		printf("End of Print Function\n");
-	}
-}
+// 	temp_p = *stack;
+// 	if (*stack == NULL)
+// 		printf("List is Empty\n");
+// 	if (*stack != NULL)
+// 	{	
+// 		while (temp_p->next != NULL)
+// 		{
+// 			printf("%s", "In Index: ");
+// 			printf("%d\n", temp_p->index);
+// 			temp_p = temp_p->next;
+// 		}
+// 		printf("%s", "In Index: ");
+// 		printf("%d\n", temp_p->index);
+// 		printf("End of Print Function\n");
+// 	}
+// }
 
 // void    ft_putnbr_bin(void *content)
 // {
