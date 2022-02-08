@@ -6,7 +6,7 @@
 /*   By: vsimeono <vsimeono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 18:32:03 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/02/06 22:21:22 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/02/07 12:51:21 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,6 @@ void	print_stack(t_stack **stack);
 void	print_index(t_stack **stack);
 
 
-
+//// Testing with Edvinas
+int    bitlength(int num);
 #endif
