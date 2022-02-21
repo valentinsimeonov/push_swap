@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 int		bubble_swap(int small, int big)
 {
 	int	temp;
@@ -25,15 +26,11 @@ void	bubble_sort(t_stack **stack)
 {
     t_stack     *temp;
     int        i;
-	int			j;
-	int			k;
 	int			count;
 	int			num_temp;
 	int			swap;
 	
     i = 0;
-	j = 0;
-	k = 0;
 	count = len_stack_index_assign(stack);
     temp = *stack;
 	swap = 1;

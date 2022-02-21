@@ -59,3 +59,22 @@ int	more_than_digits(int argc, char **argv)
 	}
 	return (0);
 }
+
+int		is_sorted(t_stack ** stack)
+{
+	t_stack		*temp;
+	int			i;
+	int			count;
+
+	i = 1;
+	count = len_stack(stack);
+	while(temp->next != NULL)
+	{
+		temp = temp->next;
+		if (i == temp->index)
+			i++;
+	}
+	if (i == count)
+		return (1);
+	return (0);
+}

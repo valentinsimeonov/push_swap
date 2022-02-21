@@ -41,41 +41,7 @@ void	swap_a(t_stack **stack)
 // 	*stack = second;
 // }
 
-void	switch_first_last_stack(t_stack **stack)
-{
-	t_stack	*first;
-	t_stack	*second;
-	t_stack	*before_last;
-	t_stack	*last;
-	t_stack	*temp;
-	int	counter;
-	int	j;
-
-	counter = 1;
-	j = 1;
-	temp = *stack;
-	while (temp->next != NULL)
-	{
-		temp = temp->next;
-		counter++;
-	}
-	last = temp;
-	temp = *stack;
-
-	while (j < (counter - 1))
-	{
-		temp = temp->next;
-		j++;
-	}
-	before_last = temp;
-	first = *stack;
-	second = first->next;
-	last->next = second;
-	before_last->next = first;
-	*stack = last;
-}
-
-void	rotate_stack_a(t_stack **stack)
+void	rotate_a(t_stack **stack)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -94,7 +60,7 @@ void	rotate_stack_a(t_stack **stack)
 	write(1, "ra\n", 3);
 }
 
-void	rotate_stack_b(t_stack **stack)
+void	rotate_b(t_stack **stack)
 {
 	t_stack	*first;
 	t_stack	*second;

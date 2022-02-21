@@ -16,12 +16,10 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_sorted;
-	t_stack	*stack_b;
+	// t_stack	*stack_b;
 	t_variables	var;
 	int		j;
-	int		temp;
 
-	temp = 0;
 	if (argc == 1 || argc == 2)
 		return (0);
 	if ((argc < 3) || more_than_digits(argc, argv) || \
@@ -44,23 +42,25 @@ int	main(int argc, char **argv)
 	}
 	bubble_sort(&stack_sorted);
 	index_assignment(&stack_a, &stack_sorted);
-	if (argc == 3 && stack_a->index != 1)
-	{
-		swap_a(&stack_a);
-		return (0);
-	}
+	// if (is_sorted(&stack_a))
+	// 	return (0);
+	// if (argc == 3 && stack_a->index != 1)
+	// {
+	// 	swap_a(&stack_a);
+	// 	return (0);
+	// }
 	// if (argc > 3 && argc > 6)
 	// 	manual_sort(&stack_a);
 
-	if (argc > 4)
-		shifting(&stack_a, &stack_b);
+	// if (argc > 4)
+	// 	shifting(&stack_a, &stack_b);
 	return (0);
 }
 
-void	manual_sort(t_stack **stack)
-{
+// void	manual_sort(t_stack **stack)
+// {
 	
-}
+// }
 
 void	shifting(t_stack **stack_a, t_stack **stack_b)
 {
@@ -79,7 +79,7 @@ void	shifting(t_stack **stack_a, t_stack **stack_b)
         while (i < count)
         {
             if ((*stack_a)->index >> shift & 1)
-                rotate_stack_a(stack_a);
+                rotate_a(stack_a);
             else 
                 push_b(stack_a, stack_b);
             i++;
@@ -100,6 +100,83 @@ int    bitlength(int num)
         bits++;
     return (bits);
 }
+
+void	print_stack(t_stack **stack)
+{
+	/* Printing Function */
+	t_stack *temp_p;
+	
+	temp_p = *stack;
+	if (*stack == NULL)
+		printf("List is Empty\n");
+	if (*stack != NULL)
+	{	
+		while (temp_p->next != NULL)
+		{
+			printf("%s", "In List: ");
+			printf("%d\n", temp_p->value);
+			temp_p = temp_p->next;
+		}
+		printf("%s", "In List: ");
+		printf("%d\n", temp_p->value);
+	}
+}
+
+void	print_index(t_stack **stack)
+{
+	/* Printing Function */
+	t_stack *temp_p;
+	
+	temp_p = *stack;
+	if (*stack == NULL)
+		printf("List is Empty\n");
+	if (*stack != NULL)
+	{	
+		while (temp_p->next != NULL)
+		{
+			printf("%s", "In Index: ");
+			printf("%d\n", temp_p->index);
+			temp_p = temp_p->next;
+		}
+		printf("%s", "In Index: ");
+		printf("%d\n", temp_p->index);
+		printf("End of Print Function\n");
+	}
+}
+
+t_stack	*create_stack_value(int value)
+{
+	t_stack	*element;
+
+	element = malloc(sizeof(t_stack));
+	if (!element)
+		return (NULL);
+	element->value = value;
+	element->next = NULL;
+	return (element);
+}
+
+
+
+// void    ft_putnbr_bin(void *content)
+// {
+//     t_number    *num;
+//     int 	i;
+//     int		y;
+
+//     y = 7;
+//     num = content;
+//     i = num->index;
+//     while (y != -1)
+//     {
+//         if (((i >> y) & 1) == 1)
+//             write(1, "1", 1);
+//         else
+//             write(1, "0", 1);
+//         y--;
+//     }
+//     write(1, " ", 1);
+// } 
 
 // int	count_biggest_index_in_binary(t_stack **stack)
 // {
@@ -194,80 +271,8 @@ int    bitlength(int num)
 // 	return (max_bits);
 // }
 
-void	print_stack(t_stack **stack)
-{
-	/* Printing Function */
-	t_stack *temp_p;
-	
-	temp_p = *stack;
-	if (*stack == NULL)
-		printf("List is Empty\n");
-	if (*stack != NULL)
-	{	
-		while (temp_p->next != NULL)
-		{
-			printf("%s", "In List: ");
-			printf("%d\n", temp_p->value);
-			temp_p = temp_p->next;
-		}
-		printf("%s", "In List: ");
-		printf("%d\n", temp_p->value);
-	}
-}
 
-void	print_index(t_stack **stack)
-{
-	/* Printing Function */
-	t_stack *temp_p;
-	
-	temp_p = *stack;
-	if (*stack == NULL)
-		printf("List is Empty\n");
-	if (*stack != NULL)
-	{	
-		while (temp_p->next != NULL)
-		{
-			printf("%s", "In Index: ");
-			printf("%d\n", temp_p->index);
-			temp_p = temp_p->next;
-		}
-		printf("%s", "In Index: ");
-		printf("%d\n", temp_p->index);
-		printf("End of Print Function\n");
-	}
-}
 
-// void    ft_putnbr_bin(void *content)
-// {
-//     t_number    *num;
-//     int 	i;
-//     int		y;
-
-//     y = 7;
-//     num = content;
-//     i = num->index;
-//     while (y != -1)
-//     {
-//         if (((i >> y) & 1) == 1)
-//             write(1, "1", 1);
-//         else
-//             write(1, "0", 1);
-//         y--;
-//     }
-//     write(1, " ", 1);
-// }    
-
-t_stack	*create_stack_value(int value)
-{
-	t_stack	*element;
-
-	element = malloc(sizeof(t_stack));
-	if (!element)
-		return (NULL);
-	element->value = value;
-	element->next = NULL;
-	return (element);
-}
 
 
 
