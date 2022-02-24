@@ -6,7 +6,7 @@
 /*   By: vsimeono <vsimeono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:22:43 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/02/07 15:44:01 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/02/23 14:34:35 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	swap_a(t_stack **stack)
 {
-	t_stack *first;
+	t_stack	*first;
 	t_stack	*second;
 	t_stack	*third;
 
@@ -27,19 +27,20 @@ void	swap_a(t_stack **stack)
 	write(1, "sa\n", 3);
 }
 
-// void	swap_b(t_stack **stack)
-// {
-// 	t_stack *first;
-// 	t_stack	*second;
-// 	t_stack	*third;
-	
-// 	first = *stack;
-// 	second = first->next;
-// 	third = second->next;
-// 	second->next = first;
-// 	first->next = third;
-// 	*stack = second;
-// }
+void	swap_b(t_stack **stack)
+{
+	t_stack	*first;
+	t_stack	*second;
+	t_stack	*third;
+
+	first = *stack;
+	second = first->next;
+	third = second->next;
+	second->next = first;
+	first->next = third;
+	*stack = second;
+	write(1, "sb\n", 3);
+}
 
 void	rotate_a(t_stack **stack)
 {

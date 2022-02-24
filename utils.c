@@ -6,7 +6,7 @@
 /*   By: vsimeono <vsimeono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/23 16:01:25 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/02/06 20:23:09 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/02/23 15:08:51 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 long	ft_atoi(const char *str)
 {
 	int		i;
-	long		num;
+	long	num;
 	int		sign;
 
 	i = 0;
@@ -65,14 +65,14 @@ int	ft_isdigit(int c)
 
 int	len_stack(t_stack **stack)
 {
-	t_stack *temp;
-	int	counter;
-	
+	t_stack	*temp;
+	int		counter;
+
 	temp = *stack;
 	counter = 0;
 	if (*stack != NULL)
 	{
-		counter = 1; 
+		counter = 1;
 		while (temp->next != NULL)
 		{
 			temp = temp->next;

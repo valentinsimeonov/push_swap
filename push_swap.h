@@ -6,30 +6,30 @@
 /*   By: vsimeono <vsimeono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 18:32:03 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/02/07 12:51:21 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/02/23 16:36:54 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>   //////Delete This!!!!   TODO
+# include <unistd.h>
+# include <stdlib.h>
 
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
 
-typedef struct s_stack 
+typedef struct s_stack
 {
-	int value;
-	int	index;
-	struct s_stack *next;
+	int				value;
+	int				index;
+	struct	s_stack	*next;
 } t_stack;
 
 typedef struct s_variables
 {
 	int		i;
+	int		j;
 	int		arguments_count;
 } t_variables;
 
@@ -59,11 +59,12 @@ void	push_a(t_stack **stack_a, t_stack **stack_b);
 void	push_b(t_stack **stack_a, t_stack **stack_b);
 
 /* Sort Few   */
+void	manual_sort(t_stack **stack_a, t_stack **stack_b, int argc);
 void	sort_3(t_stack  **stack);
 t_stack	*sort_3_for_4_and_5(t_stack  **stack);
-void	sort_4(t_stack **stack);
-t_stack	*sort_4_for_5(t_stack **stack);
-void	sort_5(t_stack **stack);
+void	sort_4(t_stack **stack_a, t_stack **stack_b);
+t_stack   *sort_4_for_5(t_stack **stack_a, t_stack **stack_b);
+void    sort_5(t_stack **stack_a, t_stack **stack_b);
 
 /* Shifting   */
 void	shifting(t_stack **stack_a, t_stack **stack_b);

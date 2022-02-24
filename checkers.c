@@ -6,12 +6,11 @@
 /*   By: vsimeono <vsimeono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:19:04 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/02/02 22:47:04 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/02/23 14:19:14 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int	more_than_int(int argc, char **argv)
 {
@@ -60,7 +59,7 @@ int	more_than_digits(int argc, char **argv)
 	return (0);
 }
 
-int		is_sorted(t_stack ** stack)
+int	is_sorted(t_stack **stack)
 {
 	t_stack		*temp;
 	int			i;
@@ -68,11 +67,12 @@ int		is_sorted(t_stack ** stack)
 
 	i = 1;
 	count = len_stack(stack);
-	while(temp->next != NULL)
+	temp = *stack;
+	while (temp->next != NULL)
 	{
-		temp = temp->next;
 		if (i == temp->index)
 			i++;
+		temp = temp->next;
 	}
 	if (i == count)
 		return (1);
