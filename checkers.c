@@ -6,7 +6,7 @@
 /*   By: vsimeono <vsimeono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:19:04 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/02/23 14:19:14 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/02/26 15:44:58 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,18 @@ int	is_sorted(t_stack **stack)
 	if (i == count)
 		return (1);
 	return (0);
+}
+
+void	free_stack(t_stack **stack_a)
+{
+    t_stack    *tmp1;
+    t_stack    *tmp2;
+    
+    tmp1 = *stack_a;
+    while (tmp1 != NULL)
+    {
+        tmp2 = tmp1->next;
+        free(tmp1);
+        tmp1 = tmp2;
+    }
 }

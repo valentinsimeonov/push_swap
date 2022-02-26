@@ -6,7 +6,7 @@
 /*   By: vsimeono <vsimeono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 12:37:22 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/02/23 16:37:40 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/02/26 16:40:28 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int	main(int argc, char **argv)
 		manual_sort(&stack_a, &stack_b, argc);
 	else if (argc == 5 || argc > 6)
 		shifting(&stack_a, &stack_b);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
 	return (0);
 }
 

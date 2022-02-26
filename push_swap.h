@@ -6,7 +6,7 @@
 /*   By: vsimeono <vsimeono@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 18:32:03 by vsimeono          #+#    #+#             */
-/*   Updated: 2022/02/23 16:36:54 by vsimeono         ###   ########.fr       */
+/*   Updated: 2022/02/26 15:45:42 by vsimeono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct s_variables
 void	stack_add_bottom(t_stack **stack, int value);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 t_stack	*create_stack_value(int value);
-
+void	free_stack(t_stack **stack_a);
 
 /*  AKS   */
 int	len_stack(t_stack **stack);
